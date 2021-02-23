@@ -19,8 +19,8 @@ public class Player : MonoBehaviour
     {
         float h = Input.GetAxis("Horizontal");
         // float v = Input.GetAxis("Vertical");
-        if(h!=0)
-          sr.flipX = h < 0 || !(h > 0);
+        if (h != 0)
+            sr.flipX = h < 0;
         rigidBody.velocity = new Vector2(h * speed, rigidBody.velocity.y);
 
     }
