@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
@@ -38,6 +39,9 @@ public class Player : MonoBehaviour
     {
         if (collider.gameObject.tag=="Base")
             isGrounded = true;
+        if(collider.gameObject.tag=="Plant")
+            SceneManager.LoadScene("Game Over");
+
     }
     private void OnCollisionExit2D(Collision2D collider)
     {
