@@ -6,6 +6,10 @@ TagManager:
   tags:
   - Base
   - Plant
+  - Trigger
+  - ENDBASE
+  - PIPE
+  - ENEMY
   layers:
   - Default
   - TransparentFX

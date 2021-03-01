@@ -5,7 +5,6 @@ using UnityEngine.SceneManagement;
 
 public class Fall : MonoBehaviour
 {
-    private BoxCollider2D boxCollider2D;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,16 +18,15 @@ public class Fall : MonoBehaviour
     }
     private void OnCollisionEnter2D(Collision2D collider)
     {
-        if (collider.gameObject.tag == "Player")
-            boxCollider2D.isTrigger = true;
+        if (collider.gameObject.CompareTag("Player"))
+        {
+            Destroy(collider.gameObject);
+            SceneManager.LoadScene("Game Over");
+        }
+
         else
         {
-            Debug.Log("down");
             Destroy(collider.gameObject);
         }
-    }
-    private void IsTrigger()
-    {
-        SceneManager.LoadScene("Game Over");
     }
 }

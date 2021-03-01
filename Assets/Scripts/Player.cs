@@ -37,7 +37,7 @@ public class Player : MonoBehaviour
     }
    private void OnCollisionEnter2D(Collision2D collider)
     {
-        if (collider.gameObject.tag=="Base")
+        if (collider.gameObject.tag=="Base" || collider.gameObject.tag == "ENDBASE")
             isGrounded = true;
         if(collider.gameObject.tag=="Plant")
             SceneManager.LoadScene("Game Over");

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy : MonoBehaviour
+public class KoopaTrigger : MonoBehaviour
 {
     private BoxCollider2D bCollider2D;
     // Start is called before the first frame update
