@@ -10,11 +10,14 @@ public class Player : MonoBehaviour
     public float jumpSpeed = 4f;
     private SpriteRenderer sr;
     private bool isGrounded;
+    public Sprite jump;
+    public Sprite stand;
     // Start is called before the first frame update
     void Start()
     {
         sr = GetComponent<SpriteRenderer>();
         rigidBody = GetComponent<Rigidbody2D>();
+        
     }
 
     // Update is called once per frame
@@ -24,11 +27,14 @@ public class Player : MonoBehaviour
         if (h != 0)
             sr.flipX = h < 0;
         rigidBody.velocity = new Vector2(h * speed, rigidBody.velocity.y);
-        
-        if(Input.GetKey(KeyCode.Space) && IsGrounded())
+        if (Input.GetKey(KeyCode.Space) && IsGrounded())
         {
             rigidBody.velocity = new Vector2(rigidBody.velocity.x,jumpSpeed);
+            sr.sprite = jump;
+            
+
         }
+     
 
     }
     private bool IsGrounded()
@@ -37,15 +43,22 @@ public class Player : MonoBehaviour
     }
    private void OnCollisionEnter2D(Collision2D collider)
     {
-        if (collider.gameObject.tag=="Base" || collider.gameObject.tag == "ENDBASE")
+        //   sr.sprite = stand;
+        if (collider.gameObject.tag == "Base" || collider.gameObject.tag == "ENDBASE" || collider.gameObject.tag == "PIPE")
+        {
             isGrounded = true;
-        if(collider.gameObject.tag=="Plant")
+            sr.sprite = stand;
+        }
+        else
+            isGrounded = false;
+        if (collider.gameObject.tag=="Plant")
             SceneManager.LoadScene("Game Over");
+
 
     }
     private void OnCollisionExit2D(Collision2D collider)
     {
-        if (collider.gameObject.tag == "Base")
+        if (collider.gameObject.tag == "Base" || collider.gameObject.tag == "ENDBASE" || collider.gameObject.tag == "PIPE")
             isGrounded = false;
     }
 
