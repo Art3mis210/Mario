@@ -10,6 +10,7 @@ TagManager:
   - ENDBASE
   - PIPE
   - ENEMY
+  - Mushroom
   layers:
   - Default
   - TransparentFX
