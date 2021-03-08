@@ -68,6 +68,7 @@ public class Player : MonoBehaviour
     {
         An.enabled = false;
         sr.sprite = stand;
+        Debug.Log(collider.gameObject);
 
         if (collider.gameObject.tag == "Mushroom")
         {
