@@ -26,36 +26,34 @@ public class Player : MonoBehaviour
     void Update()
     {
         float h = Input.GetAxis("Horizontal");
-        if (h != 0)
+
+        if (h == 0)
+        {
+            An.SetBool("move", false);
+            An.enabled = false;
+            if (IsGrounded())
+                sr.sprite = stand;
+        }
+        else if (h != 0)
         {
             sr.flipX = h < 0;
             if (IsGrounded())
             {
                 An.enabled = true;
-                An.SetBool("Move", true);
+                An.SetBool("move", true);
 
             }
-        }
-        if(!IsGrounded())
-        {
-            sr.sprite = jump;
-        }
-        if (h == 0)
-        {
-            An.SetBool("Move", false);
-            An.enabled = false;
-            if (IsGrounded())
-                sr.sprite = stand;
         }
         rigidBody.velocity = new Vector2(h * speed, rigidBody.velocity.y);
 
 
         if (Input.GetKey(KeyCode.Space) && IsGrounded())
         {
+             An.SetBool("move", false);
              An.enabled = false;
-             An.SetBool("Move", false);
-            rigidBody.velocity = new Vector2(rigidBody.velocity.x,jumpSpeed);
-            sr.sprite = jump;
+             sr.sprite = jump;
+             rigidBody.velocity = new Vector2(rigidBody.velocity.x,jumpSpeed);
+             
             
 
         }
@@ -68,8 +66,9 @@ public class Player : MonoBehaviour
     }
    private void OnCollisionEnter2D(Collision2D collider)
     {
-        //   sr.sprite = stand;
-            
+        An.enabled = false;
+        sr.sprite = stand;
+
         if (collider.gameObject.tag == "Mushroom")
         {
             if (size < 1)
@@ -82,10 +81,14 @@ public class Player : MonoBehaviour
         if (collider.gameObject.tag == "Base" || collider.gameObject.tag == "ENDBASE" || collider.gameObject.tag == "PIPE")
         {
             isGrounded = true;
-            sr.sprite = stand;
+
         }
         else
+        {
+            An.SetBool("move", false);
+            An.enabled = false;
             isGrounded = false;
+        }
  
 
 
