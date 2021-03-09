@@ -11,6 +11,7 @@ TagManager:
   - PIPE
   - ENEMY
   - Mushroom
+  - Collectible
   layers:
   - Default
   - TransparentFX

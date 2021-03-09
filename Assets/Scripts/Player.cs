@@ -12,8 +12,9 @@ public class Player : MonoBehaviour
     private bool isGrounded;
     public Sprite jump;
     public Sprite stand;
-    private int size;
+    public int size;
     public Animator An;
+    private int score;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,6 +22,7 @@ public class Player : MonoBehaviour
         rigidBody = GetComponent<Rigidbody2D>();
         size = 0;
         isGrounded=true;
+        score = 0;
 }
     // Update is called once per frame
     void Update()
@@ -66,6 +68,7 @@ public class Player : MonoBehaviour
     }
    private void OnCollisionEnter2D(Collision2D collider)
     {
+        
         An.enabled = false;
         sr.sprite = stand;
         Debug.Log(collider.gameObject);
@@ -99,6 +102,16 @@ public class Player : MonoBehaviour
         if (collider.gameObject.tag == "Base" || collider.gameObject.tag == "ENDBASE" || collider.gameObject.tag == "PIPE")
             isGrounded = false;
     }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Collectible")
+        {
+            score++;
+            Destroy(collision.gameObject);
+            Debug.Log(score);
+        }
+    }
+    
 
 
 }

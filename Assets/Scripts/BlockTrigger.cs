@@ -8,6 +8,7 @@ public class BlockTrigger: MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+       
     }
 
     // Update is called once per frame
@@ -16,8 +17,9 @@ public class BlockTrigger: MonoBehaviour
     }
     private void OnCollisionEnter2D(Collision2D collider)
     {
-        if (collider.gameObject.tag == "Player")
-            Destroy(gameObject.transform.parent.gameObject);
+        if(GameObject.Find("Player").GetComponent<Player>().size!=0)
+            if (collider.gameObject.tag == "Player")
+                Destroy(gameObject.transform.parent.gameObject);
     }
 
 }
