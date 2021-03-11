@@ -17,7 +17,9 @@ public class KoopaTrigger : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collider)
     {
         if (collider.gameObject.tag == "Player")
-            Destroy(gameObject.transform.parent.gameObject);
-    }
+        {    Destroy(gameObject.transform.parent.gameObject);
+            GameObject.Find("Player").GetComponent<Player>().score += 300;
+        }
+}
 
 }

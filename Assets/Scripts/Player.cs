@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
@@ -14,7 +15,8 @@ public class Player : MonoBehaviour
     public Sprite stand;
     public int size;
     public Animator An;
-    private int score;
+    public int score;
+    public Text ScoreText;
     // Start is called before the first frame update
     void Start()
     {
@@ -26,9 +28,12 @@ public class Player : MonoBehaviour
 }
     // Update is called once per frame
     void Update()
-    {
+    {   
+        ScoreText.text = "SCORE:" + score;
         float h = Input.GetAxis("Horizontal");
-
+        GameObject.Find("Canvas").transform.GetChild(3).gameObject.SetActive(size >= 0);
+        GameObject.Find("Canvas").transform.GetChild(4).gameObject.SetActive(size >= 1);
+    //    GameObject.Find("Canvas").transform.GetChild(4).gameObject.SetActive(size == 2);
         if (h == 0)
         {
             An.SetBool("move", false);
@@ -79,10 +84,11 @@ public class Player : MonoBehaviour
             {
                 transform.localScale = new Vector2(2 * transform.localScale.x, 2 * transform.localScale.y);
                 size++;
+              //  score += 100;
             }
             Destroy(collider.gameObject);   
         }
-        if (collider.gameObject.tag == "Base" || collider.gameObject.tag == "ENDBASE" || collider.gameObject.tag == "PIPE")
+        if (collider.gameObject.tag == "Base" || collider.gameObject.tag == "ENDBASE" || collider.gameObject.tag == "PIPE" || collider.gameObject.tag == "Trigger")
         {
             isGrounded = true;
 
@@ -99,7 +105,7 @@ public class Player : MonoBehaviour
     }
     private void OnCollisionExit2D(Collision2D collider)
     {
-        if (collider.gameObject.tag == "Base" || collider.gameObject.tag == "ENDBASE" || collider.gameObject.tag == "PIPE")
+        if (collider.gameObject.tag == "Base" || collider.gameObject.tag == "ENDBASE" || collider.gameObject.tag == "PIPE" || collider.gameObject.tag == "Trigger")
             isGrounded = false;
     }
     private void OnTriggerEnter2D(Collider2D collision)
@@ -108,7 +114,7 @@ public class Player : MonoBehaviour
         {
             score++;
             Destroy(collision.gameObject);
-            Debug.Log(score);
+            
         }
     }
     
