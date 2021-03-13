@@ -9,6 +9,7 @@ public class KoopaMove : MonoBehaviour
     private Rigidbody2D rigidBody;
     public float speed=0.1f;
     private SpriteRenderer SR;
+    public Player PlayerScript;
     void Start()
     {
         rigidBody = GetComponent<Rigidbody2D>();
@@ -22,17 +23,17 @@ public class KoopaMove : MonoBehaviour
     }
     private void OnCollisionStay2D(Collision2D collider)
     {
+        int size = GameObject.Find("Player").GetComponent<Player>().size;
         if (collider.gameObject.tag == "Player")
         {
-            if (GameObject.Find("Player").GetComponent<Player>().size == 0)
+            if (size == 0)
             {
                 Destroy(collider.gameObject);
                 SceneManager.LoadScene("Game Over");
             }
             else
             {
-                GameObject.Find("Player").GetComponent<Player>().size--;
-                GameObject.Find("Player").transform.localScale = new Vector2(GameObject.Find("Player").transform.localScale.x / 2, GameObject.Find("Player").transform.localScale.y / 2);
+                GameObject.Find("Player").GetComponent<Player>().ChangeSize(size - 1);
                 GameObject.Find("Player").GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Kinematic;
                 Invoke("ChangeRigidBody", 3/4);
             }

@@ -12,6 +12,8 @@ TagManager:
   - ENEMY
   - Mushroom
   - Collectible
+  - FlagPole
+  - END
   layers:
   - Default
   - TransparentFX

@@ -4,18 +4,9 @@ using UnityEngine;
 
 public class RestartGame : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
-    void Update()
+    public void GoToMainMenu()
     {
-        if(Input.GetKey(KeyCode.Space))
-        {
-            UnityEngine.SceneManagement.SceneManager.LoadScene("Main Menu");
-        }
+        UnityEngine.SceneManagement.SceneManager.LoadScene("Main Menu");
     }
 }
