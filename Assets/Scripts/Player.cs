@@ -26,6 +26,10 @@ public class Player : MonoBehaviour
     private Sprite jump;
     public Animator Flag;
     public GameObject Fireball;
+    private Sprite flagpose;
+    public Sprite flagpose0;
+    public Sprite flagpose1;
+    public Sprite flagpose2;
     // Start is called before the first frame update
     void Start()
     {
@@ -37,7 +41,8 @@ public class Player : MonoBehaviour
         score = 0;
         stand = stand0;
         jump = jump0;
-    }
+        flagpose=flagpose0;
+}
     // Update is called once per frame
     void Update()
     {
@@ -108,6 +113,7 @@ public class Player : MonoBehaviour
             sr.sprite = stand0;
             stand = stand0;
             jump = jump0;
+            flagpose = flagpose0;
             BoxC2D.size = new Vector2(0.12f, 0.16f);
 
 
@@ -117,6 +123,7 @@ public class Player : MonoBehaviour
             sr.sprite = stand1;
             stand = stand1;
             jump = jump1;
+            flagpose = flagpose1;
             BoxC2D.size = new Vector2(0.15f, 0.31f);
 
         }
@@ -125,6 +132,7 @@ public class Player : MonoBehaviour
             sr.sprite = stand2;
             stand = stand2;
             jump = jump2;
+            flagpose = flagpose2;
             BoxC2D.size = new Vector2(0.15f, 0.31f);
         }
         if (s > size)
@@ -136,7 +144,6 @@ public class Player : MonoBehaviour
     }
    private void OnCollisionEnter2D(Collision2D collider)
     {
-        
         An.enabled = false;
         sr.sprite = stand;
         Debug.Log(collider.gameObject);
@@ -166,7 +173,8 @@ public class Player : MonoBehaviour
            // Destroy(gameObject);
             SceneManager.LoadScene("Game Over");
         }
- 
+        
+
 
 
     }
@@ -182,10 +190,18 @@ public class Player : MonoBehaviour
         if(collision.gameObject.tag=="FlagPole")
         {
             Destroy(collision.gameObject);
+            sr.sprite = flagpose;
             Flag.enabled = true;
             rigidBody.velocity = new Vector2(0, -5);
             score += 1000;
-            
+            rigidBody.constraints = RigidbodyConstraints2D.FreezePositionX| RigidbodyConstraints2D.FreezeRotation;
+        }
+        if (collision.gameObject.tag == "FLAGBASE")
+        {
+            collision.gameObject.GetComponent<BoxCollider2D>().isTrigger = false;
+            rigidBody.constraints = RigidbodyConstraints2D.None;
+            rigidBody.constraints = RigidbodyConstraints2D.FreezeRotation;
+
         }
     }
     private void OnCollisionExit2D(Collision2D collider)
