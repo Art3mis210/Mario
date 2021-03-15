@@ -15,6 +15,7 @@ TagManager:
   - FlagPole
   - END
   - FLAGBASE
+  - START
   layers:
   - Default
   - TransparentFX

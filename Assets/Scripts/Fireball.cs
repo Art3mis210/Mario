@@ -33,7 +33,7 @@ public class Fireball : MonoBehaviour
             Invoke("DestroyFireball", 0.1f);
             
         }
-        else if(collision.gameObject.tag=="PIPE"|| collision.gameObject.tag == "BASE"|| collision.gameObject.tag == "ENDBASE")
+        else if(collision.gameObject.tag=="PIPE"|| collision.gameObject.tag == "Base"|| collision.gameObject.tag == "ENDBASE"|| collision.gameObject.tag == "START" || collision.gameObject.tag == "END" || collision.gameObject.tag == "FLAGBASE")
         {
             fireAnimator.SetBool("DestroyFireball", true);
             Invoke("DestroyFireball", 0.5f);

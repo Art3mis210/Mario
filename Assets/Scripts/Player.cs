@@ -21,6 +21,7 @@ public class Player : MonoBehaviour
     public Animator An;
     public int score;
     public Text ScoreText;
+    public Text CoinCount;
     private BoxCollider2D BoxC2D;
     private Sprite stand;
     private Sprite jump;
@@ -30,6 +31,7 @@ public class Player : MonoBehaviour
     public Sprite flagpose0;
     public Sprite flagpose1;
     public Sprite flagpose2;
+    public int coin;
     // Start is called before the first frame update
     void Start()
     {
@@ -42,15 +44,17 @@ public class Player : MonoBehaviour
         stand = stand0;
         jump = jump0;
         flagpose=flagpose0;
+        coin = 0;
 }
     // Update is called once per frame
     void Update()
     {
-        ScoreText.text = "SCORE:" + score;
+        ScoreText.text ="Score:  "+score;
+        CoinCount.text = " X   " + coin;
         float h = Input.GetAxis("Horizontal");
-        GameObject.Find("Canvas").transform.GetChild(3).gameObject.SetActive(size >= 0);
-        GameObject.Find("Canvas").transform.GetChild(4).gameObject.SetActive(size >= 1);
-        GameObject.Find("Canvas").transform.GetChild(4).gameObject.SetActive(size == 2);
+        GameObject.Find("Canvas").transform.GetChild(1).gameObject.SetActive(size >= 0);
+        GameObject.Find("Canvas").transform.GetChild(2).gameObject.SetActive(size >= 1);
+        GameObject.Find("Canvas").transform.GetChild(3).gameObject.SetActive(size == 2);
         if (Input.GetKey(KeyCode.Escape))
         {
             SceneManager.LoadScene("Main Menu");
@@ -183,7 +187,8 @@ public class Player : MonoBehaviour
     {
         if (collision.gameObject.tag == "Collectible")
         {
-            score++;
+            score+=100;
+            coin++;
             Destroy(collision.gameObject);
             
         }
