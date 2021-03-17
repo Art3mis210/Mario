@@ -4,12 +4,11 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 
-public class KoopaMove : MonoBehaviour
+public class EnemyMove : MonoBehaviour
 {
     private Rigidbody2D rigidBody;
-    public float speed=0.1f;
+    public float speed = 0.1f;
     private SpriteRenderer SR;
-    public Player PlayerScript;
     void Start()
     {
         rigidBody = GetComponent<Rigidbody2D>();
@@ -19,7 +18,7 @@ public class KoopaMove : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       rigidBody.velocity = new Vector2(-speed * Time.fixedDeltaTime, rigidBody.velocity.y);
+        rigidBody.velocity = new Vector2(-speed * Time.fixedDeltaTime, rigidBody.velocity.y);
     }
     private void OnCollisionStay2D(Collision2D collider)
     {
@@ -35,7 +34,7 @@ public class KoopaMove : MonoBehaviour
             {
                 GameObject.Find("Player").GetComponent<Player>().ChangeSize(size - 1);
                 GameObject.Find("Player").GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Kinematic;
-                Invoke("ChangeRigidBody", 3/4);
+                Invoke("ChangeRigidBody", 3 / 4);
             }
         }
 

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4404273449578744633}
   - component: {fileID: 4404273449578744638}
   - component: {fileID: 4404273449578744639}
-  - component: {fileID: 4404273449578744632}
+  - component: {fileID: 4650961902822472096}
   m_Layer: 0
   m_Name: Goomba-Trigger
   m_TagString: Trigger
@@ -109,7 +109,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &4404273449578744632
+--- !u!114 &4650961902822472096
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -118,9 +118,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 4404273449578744634}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ab0b2478b9a3af5478259c1120ba33a5, type: 3}
+  m_Script: {fileID: 11500000, guid: 8ce02254a0f21924898af6ca4cd24ca6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Parent: {fileID: 4404273451198892284}
 --- !u!1 &4404273451198892284
 GameObject:
   m_ObjectHideFlags: 0
@@ -134,10 +135,10 @@ GameObject:
   - component: {fileID: 4404273451198892160}
   - component: {fileID: 4404273451198892161}
   - component: {fileID: 4404273451198892162}
-  - component: {fileID: 4404273451198892163}
+  - component: {fileID: -4520484110834765709}
   m_Layer: 0
   m_Name: Goomba
-  m_TagString: Untagged
+  m_TagString: ENEMY
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -216,7 +217,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4404273451198892284}
-  m_BodyType: 1
+  m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -274,7 +275,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &4404273451198892163
+--- !u!114 &-4520484110834765709
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -283,7 +284,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 4404273451198892284}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b4b56f5b4e6e7ba43aa6bfb0f0da2004, type: 3}
+  m_Script: {fileID: 11500000, guid: a6fe6f3ef1e5cef4e8297780c1ce1d6d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 25

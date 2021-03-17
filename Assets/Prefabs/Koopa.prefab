@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6005506445666827087}
   - component: {fileID: 6005506445666827082}
   - component: {fileID: 6005506445666827085}
-  - component: {fileID: 6005506445666827084}
+  - component: {fileID: 123513355032245600}
   m_Layer: 0
   m_Name: Koopa-Trigger
   m_TagString: Trigger
@@ -109,7 +109,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &6005506445666827084
+--- !u!114 &123513355032245600
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -118,9 +118,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 6005506445666827086}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a5f8310bed564a14fa70c023e59ebe13, type: 3}
+  m_Script: {fileID: 11500000, guid: 8ce02254a0f21924898af6ca4cd24ca6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Parent: {fileID: 6005506445993705370}
+  DeadSprite: {fileID: 0}
 --- !u!1 &6005506445993705370
 GameObject:
   m_ObjectHideFlags: 0
@@ -134,10 +136,10 @@ GameObject:
   - component: {fileID: 6005506445993705350}
   - component: {fileID: 6005506445993705369}
   - component: {fileID: 6005506445993705368}
-  - component: {fileID: 6005506445993705371}
+  - component: {fileID: -5952831542024382406}
   m_Layer: 0
   m_Name: Koopa
-  m_TagString: Untagged
+  m_TagString: ENEMY
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -216,7 +218,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6005506445993705370}
-  m_BodyType: 1
+  m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -228,7 +230,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 6
+  m_Constraints: 4
 --- !u!61 &6005506445993705369
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -274,7 +276,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &6005506445993705371
+--- !u!114 &-5952831542024382406
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -283,7 +285,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 6005506445993705370}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 33c18ad8fffc8134d9d6c1b67d339b22, type: 3}
+  m_Script: {fileID: 11500000, guid: a6fe6f3ef1e5cef4e8297780c1ce1d6d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 25
