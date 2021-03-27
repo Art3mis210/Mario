@@ -31,7 +31,16 @@ public class Player : MonoBehaviour
     public Sprite flagpose0;
     public Sprite flagpose1;
     public Sprite flagpose2;
+    public Sprite PlayerDeath;
     public int coin;
+    public AudioClip CoinSound;
+    public AudioClip MushroomOut;
+    public AudioClip MushroomTake;
+    public AudioClip EnemySound;
+    public AudioClip BrickSmash;
+    public AudioClip StageClear;
+    public AudioClip PowerDown;
+    public AudioClip PlayerDeathSound;
     // Start is called before the first frame update
     void Start()
     {
@@ -90,18 +99,18 @@ public class Player : MonoBehaviour
             }
 
         }
-            rigidBody.velocity = new Vector2(h * speed, rigidBody.velocity.y);
-
-
-            if (Input.GetKey(KeyCode.Space) && IsGrounded())
-            {
+        rigidBody.velocity = new Vector2(h * speed, rigidBody.velocity.y);
+        if (Input.GetKey(KeyCode.Space) && IsGrounded())
+        {
                 An.SetBool("move", false);
                 An.enabled = false;
                 sr.sprite = jump;
                 rigidBody.velocity = new Vector2(rigidBody.velocity.x, jumpSpeed);
-            }
+        }
+        
        /* if (Input.GetKeyUp(KeyCode.S))
             sr.sprite = stand;*/
+       
 
 
 
@@ -110,6 +119,7 @@ public class Player : MonoBehaviour
     {
         return isGrounded;
     }
+
     public void ChangeSize(int s)
     {
         if(s==0)
@@ -142,7 +152,10 @@ public class Player : MonoBehaviour
         if (s > size)
             size++;
         else
+        {
+            gameObject.GetComponent<AudioSource>().PlayOneShot(PowerDown);
             size--;
+        }
        // An.SetInteger("size", s);
 
     }
@@ -154,6 +167,7 @@ public class Player : MonoBehaviour
 
         if (collider.gameObject.tag == "Mushroom")
         {
+            gameObject.GetComponent<AudioSource>().PlayOneShot(MushroomTake);
             if (size<=1)
             {
                 ChangeSize(size+1);
@@ -177,7 +191,7 @@ public class Player : MonoBehaviour
            // Destroy(gameObject);
             SceneManager.LoadScene("Game Over");
         }
-        
+
 
 
 
@@ -187,6 +201,7 @@ public class Player : MonoBehaviour
     {
         if (collision.gameObject.tag == "Collectible")
         {
+            gameObject.GetComponent<AudioSource>().PlayOneShot(CoinSound);
             score+=100;
             coin++;
             Destroy(collision.gameObject);
@@ -195,6 +210,8 @@ public class Player : MonoBehaviour
         if(collision.gameObject.tag=="FlagPole")
         {
             Destroy(collision.gameObject);
+            gameObject.GetComponent<AudioSource>().Stop();
+            GameObject.Find("Flag").GetComponent<AudioSource>().Play();
             sr.sprite = flagpose;
             Flag.enabled = true;
             rigidBody.velocity = new Vector2(0, -5);
@@ -206,14 +223,41 @@ public class Player : MonoBehaviour
             collision.gameObject.GetComponent<BoxCollider2D>().isTrigger = false;
             rigidBody.constraints = RigidbodyConstraints2D.None;
             rigidBody.constraints = RigidbodyConstraints2D.FreezeRotation;
+            gameObject.GetComponent<AudioSource>().Stop();
+            gameObject.GetComponent<AudioSource>().PlayOneShot(StageClear);
 
         }
+       
     }
     private void OnCollisionExit2D(Collision2D collider)
     {
         if (collider.gameObject.tag == "Base" || collider.gameObject.tag == "ENDBASE" || collider.gameObject.tag == "PIPE" || collider.gameObject.tag == "Trigger")
             isGrounded = false;
     }
+    public void StompEnemy()
+    {
+        gameObject.GetComponent<AudioSource>().PlayOneShot(EnemySound);
+    }
+    public void BrickSmashSound()
+    {
+        gameObject.GetComponent<AudioSource>().PlayOneShot(BrickSmash);
+    }
+    public void MushroomOutSound()
+    {
+        gameObject.GetComponent<AudioSource>().PlayOneShot(MushroomOut);
+    }
+    public void PlayerDeathAnimation()
+    {
+        An.enabled = false;
+        rigidBody.constraints = RigidbodyConstraints2D.FreezePositionX| RigidbodyConstraints2D.FreezeRotation;
+        BoxC2D.enabled = false;
+        gameObject.GetComponent<AudioSource>().Stop();
+        gameObject.GetComponent<AudioSource>().PlayOneShot(PlayerDeathSound);
+        sr.sprite = PlayerDeath;
+        Destroy(gameObject.GetComponent<Player>());
+    }
+
+
 
 
 }

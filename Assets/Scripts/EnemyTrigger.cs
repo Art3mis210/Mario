@@ -7,6 +7,7 @@ public class EnemyTrigger : MonoBehaviour
     private BoxCollider2D bCollider2D;
     public GameObject Parent;
     public GameObject DeadSprite;
+    private int stomp = 0;
     // Start is called before the first frame update
     void Start()
     {
@@ -17,10 +18,17 @@ public class EnemyTrigger : MonoBehaviour
     }
     private void OnCollisionEnter2D(Collision2D collider)
     {
+        
         if (collider.gameObject.tag == "Player")
-        {
+        {   
+            if(stomp==0)
+            {
+                collider.gameObject.GetComponent<Player>().StompEnemy();
+                stomp++;
+            }
             if(Parent.name.Contains("Goomba"))
             {
+                
                 Parent.GetComponent<Transform>().localScale = new Vector2(Parent.GetComponent<Transform>().localScale.x, Parent.GetComponent<Transform>().localScale.x - 0.16f);
                 Destroy(Parent.GetComponent<EnemyMove>());
                 Invoke("DestroyEnemy", 1);

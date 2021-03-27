@@ -16,6 +16,7 @@ public class MysteryBlockTrigger : MonoBehaviour
     {
         if (collider.gameObject.tag == "Player")
         {
+            GameObject.Find("Player").GetComponent<Player>().MushroomOutSound();
             SR.sprite = empty;
             Mushroom.SetActive(true);
             An.SetBool("MysteryBlockTrigger", true);
@@ -29,6 +30,7 @@ public class MysteryBlockTrigger : MonoBehaviour
     }
     private void MushroomPOP()
     {
+        GameObject.Find("Player").GetComponent<Player>().MushroomOutSound();
         An.SetBool("Mushroom out", true);
     }
 

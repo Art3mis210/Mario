@@ -17,9 +17,12 @@ public class BlockTrigger: MonoBehaviour
     }
     private void OnCollisionEnter2D(Collision2D collider)
     {
-        if(GameObject.Find("Player").GetComponent<Player>().size!=0)
+        if (GameObject.Find("Player").GetComponent<Player>().size != 0)
             if (collider.gameObject.tag == "Player")
+            {
+                GameObject.Find("Player").GetComponent<Player>().BrickSmashSound();
                 Destroy(gameObject.transform.parent.gameObject);
+            }
     }
 
 }

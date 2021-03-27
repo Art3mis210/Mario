@@ -13,8 +13,9 @@ public class Plant : MonoBehaviour
         {
             if (size == 0)
             {
-                Destroy(collider.gameObject);
-                SceneManager.LoadScene("Game Over");
+                GameObject.Find("Mario").GetComponent<Animator>().enabled = true;
+                // Destroy(collider.gameObject);
+                // SceneManager.LoadScene("Game Over");
             }
             else
             {
