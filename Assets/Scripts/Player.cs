@@ -25,6 +25,7 @@ public class Player : MonoBehaviour
     private BoxCollider2D BoxC2D;
     private Sprite stand;
     private Sprite jump;
+    private Sprite sit;
     public Animator Flag;
     public GameObject Fireball;
     private Sprite flagpose;
@@ -45,6 +46,11 @@ public class Player : MonoBehaviour
     public AudioClip Jump0Sound;
     public AudioClip Jump1Sound;
     public AudioClip FireballDeath;
+    private bool underground;
+    public Sprite sit0;
+    public Sprite sit1;
+    public Sprite sit2;
+    public AudioClip GameClear;
     // Start is called before the first frame update
     void Start()
     {
@@ -59,10 +65,17 @@ public class Player : MonoBehaviour
         flagpose=flagpose0;
         coin = 0;
         JumpSound=Jump0Sound;
+        underground = false;
+        sit = sit0;
     }
     // Update is called once per frame
     void Update()
     {
+        if (underground == true)
+        {
+            gameObject.transform.localPosition = new Vector3(0.67f, -4.92f, 19.68f);
+            underground = false;
+        }
         ScoreText.text ="Score:  "+score;
         CoinCount.text = " X   " + coin;
         float h = Input.GetAxis("Horizontal");
@@ -86,9 +99,16 @@ public class Player : MonoBehaviour
         {
             An.SetBool("move", false);
             An.enabled = false;
-
-            if (isGrounded == true)
+            if ((Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow)) && isGrounded == true)
             {
+                if(size!=0)
+                    BoxC2D.size = new Vector2(0.15f, 0.20f);
+                sr.sprite = sit;
+            }
+            else if (Input.GetKey(KeyCode.S) == false && isGrounded == true)
+            {
+                if (size != 0)
+                    BoxC2D.size = new Vector2(0.15f, 0.31f);
                 sr.sprite = stand;
             }
         }
@@ -131,6 +151,7 @@ public class Player : MonoBehaviour
             jump = jump0;
             flagpose = flagpose0;
             JumpSound = Jump0Sound;
+            sit = sit0;
             BoxC2D.size = new Vector2(0.12f, 0.16f);
 
 
@@ -142,6 +163,7 @@ public class Player : MonoBehaviour
             jump = jump1;
             flagpose = flagpose1;
             JumpSound = Jump1Sound;
+            sit = sit1;
             BoxC2D.size = new Vector2(0.15f, 0.31f);
 
         }
@@ -152,6 +174,7 @@ public class Player : MonoBehaviour
             jump = jump2;
             flagpose = flagpose2;
             JumpSound = Jump1Sound;
+            sit = sit2;
             BoxC2D.size = new Vector2(0.15f, 0.31f);
         }
         if (s > size)
@@ -237,6 +260,16 @@ public class Player : MonoBehaviour
             // Destroy(gameObject);
             SceneManager.LoadScene("Game Over");
         }
+        if (collision.gameObject.name == "UndergroundEntered")
+        {
+            gameObject.GetComponent<AudioSource>().Stop();
+            gameObject.GetComponent<AudioSource>().PlayOneShot(GameClear);
+            collision.GetComponent<BoxCollider2D>().enabled = false;
+        }
+        if(collision.gameObject.name == "PrincessPeach")
+        {
+            SceneManager.LoadScene("Game Over");
+        }
 
     }
     private void OnCollisionExit2D(Collision2D collider)
@@ -277,6 +310,24 @@ public class Player : MonoBehaviour
     {
         gameObject.GetComponent<AudioSource>().PlayOneShot(FireballDeath);
     }
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if(collision.gameObject.name=="UndergroundEntrance")
+        {
+            if(Input.GetKey(KeyCode.S))
+            {
+                underground = true;
+                gameObject.GetComponent<AudioSource>().PlayOneShot(PowerDown);
+               // GameObject.Find("Fall").SetActive(false);
+                collision.gameObject.transform.GetChild(0).gameObject.SetActive(true);
+                GameObject.Find("Main Camera").GetComponent<CameraPath>().Underground = true;
+                
+                //rigidBody.constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezeRotation;
+            }
+        }
+        
+    }
+
 
 
 
