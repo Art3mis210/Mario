@@ -11,6 +11,13 @@ public class Plant : MonoBehaviour
     {
         ignoreMario=false;
     }
+     void Update()
+    {
+        if (ignoreMario == true)
+        {
+            Invoke("DontIgnoreMario", 2);
+        }
+    }
     private void DontIgnoreMario()
     {
         Physics2D.IgnoreCollision(GameObject.Find("Player").GetComponent<BoxCollider2D>(), gameObject.GetComponent<BoxCollider2D>(), false);

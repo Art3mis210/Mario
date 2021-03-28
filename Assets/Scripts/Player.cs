@@ -113,10 +113,10 @@ public class Player : MonoBehaviour
                 sr.sprite = jump;
                 rigidBody.velocity = new Vector2(rigidBody.velocity.x, jumpSpeed);
         }
-        
-       /* if (Input.GetKeyUp(KeyCode.S))
-            sr.sprite = stand;*/
-       
+
+        /* if (Input.GetKeyUp(KeyCode.S))
+             sr.sprite = stand;*/
+
 
 
 
@@ -180,15 +180,11 @@ public class Player : MonoBehaviour
             }
             Destroy(collider.gameObject);
         }
-        if(collider.gameObject.tag=="END")
+        if (collider.gameObject.name == "Fall")
         {
-           // Destroy(gameObject);
-            SceneManager.LoadScene("Game Over");
+            Debug.Log("DEAD");
+            PlayerDeathAnimation();
         }
-
-
-
-
     }
     private void OnCollisionStay2D(Collision2D collider)
     {
@@ -236,12 +232,20 @@ public class Player : MonoBehaviour
             GameObject.Find("START").transform.position = new Vector3(GameObject.Find("Flag").transform.position.x - 5, GameObject.Find("START").transform.position.y, GameObject.Find("START").transform.position.z);
 
         }
-       
+        if (collision.gameObject.tag == "END")
+        {
+            // Destroy(gameObject);
+            SceneManager.LoadScene("Game Over");
+        }
+
     }
     private void OnCollisionExit2D(Collision2D collider)
     {
         if (collider.gameObject.tag == "Base" || collider.gameObject.tag == "ENDBASE" || collider.gameObject.tag == "PIPE" || collider.gameObject.tag == "Trigger")
+        {
             isGrounded = false;
+            An.enabled = false;
+        }
     }
     public void StompEnemy()
     {
