@@ -44,6 +44,7 @@ public class Player : MonoBehaviour
     private AudioClip JumpSound;
     public AudioClip Jump0Sound;
     public AudioClip Jump1Sound;
+    public AudioClip FireballDeath;
     // Start is called before the first frame update
     void Start()
     {
@@ -266,6 +267,10 @@ public class Player : MonoBehaviour
     public void PlayCoinSound()
     {
         gameObject.GetComponent<AudioSource>().PlayOneShot(CoinSound);
+    }
+    public void PlayFireballDeathSound()
+    {
+        gameObject.GetComponent<AudioSource>().PlayOneShot(FireballDeath);
     }
 
 

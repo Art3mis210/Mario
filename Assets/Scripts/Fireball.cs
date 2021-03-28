@@ -28,15 +28,31 @@ public class Fireball : MonoBehaviour
     {
         if(collision.gameObject.tag=="ENEMY"|| collision.gameObject.tag == "Plant")
         {
+            fireAnimator.SetBool("DestroyFireball", true);
+            
             GameObject.Find("Player").GetComponent<Player>().score += 500;
-            collision.gameObject.GetComponent<Animator>().enabled = true;
-            Invoke("DestroyFireball", 0.1f);
+            if (collision.gameObject.tag != "Plant")
+            {
+                if (speed < 0)
+                    collision.gameObject.GetComponent<EnemyMove>().movex = -0.14f;
+                else
+                    collision.gameObject.GetComponent<EnemyMove>().movex = 0.14f;
+                speed = 0;
+                collision.gameObject.GetComponent<EnemyMove>().EnemyDeath();
+            }
+            else
+            {
+                speed = 0;
+                Destroy(collision.gameObject);
+            }
+            
+           // Invoke("DestroyFireball", 0.1f);
             
         }
         else if(collision.gameObject.tag=="PIPE"|| collision.gameObject.tag == "Base"|| collision.gameObject.tag == "ENDBASE"|| collision.gameObject.tag == "START" || collision.gameObject.tag == "END" || collision.gameObject.tag == "FLAGBASE")
         {
             fireAnimator.SetBool("DestroyFireball", true);
-            Invoke("DestroyFireball", 0.5f);
+           // Invoke("DestroyFireball", 0.5f);
 
         }
     }

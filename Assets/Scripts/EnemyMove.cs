@@ -10,20 +10,36 @@ public class EnemyMove : MonoBehaviour
     public float speed = 0.1f;
     private SpriteRenderer SR;
     private bool ignoreMario;
+    private int deathMove;
+    public float movex;
     void Start()
     {
         rigidBody = GetComponent<Rigidbody2D>();
         SR = GetComponent<SpriteRenderer>();
         ignoreMario=false;
+        deathMove = 0;
     }
 
     // Update is called once per frame
     void Update()
-    {
-        rigidBody.velocity = new Vector2(-speed * Time.fixedDeltaTime, rigidBody.velocity.y);
-        if(ignoreMario==true)
+    {   
+        if(deathMove==0)
         {
-            Invoke("DontIgnoreMario", 2);    
+            rigidBody.velocity = new Vector2(-speed * Time.fixedDeltaTime, rigidBody.velocity.y);
+            if (ignoreMario == true)
+            {
+                Invoke("DontIgnoreMario", 2);
+            }
+        }
+        else if(deathMove<5)
+        {
+
+            gameObject.transform.position = new Vector3(gameObject.transform.position.x+movex, gameObject.transform.position.y + +0.24f, gameObject.transform.position.z);
+            deathMove++;
+        }
+        else if(deathMove==5)
+        {
+            EnemyDeath();
         }
         if (gameObject.transform.position.y < -20)
             Destroy(gameObject);
@@ -75,13 +91,19 @@ public class EnemyMove : MonoBehaviour
 
         }
     }
-    private void EnemyDeath()
+    public void EnemyDeath()
     {
-        gameObject.transform.GetChild(0).gameObject.SetActive(false);
-        gameObject.GetComponent<BoxCollider2D>().enabled = false;
-        rigidBody.constraints = RigidbodyConstraints2D.FreezePositionX;
-        gameObject.GetComponent<Animator>().enabled = false;
-        speed = 0;
+        if (deathMove == 0)
+        {
+            gameObject.transform.GetChild(0).gameObject.SetActive(false);
+            gameObject.GetComponent<BoxCollider2D>().enabled = false;
+            deathMove = 1;
+            speed = 0;
+            GameObject.Find("Player").GetComponent<Player>().PlayFireballDeathSound();
+            SR.flipY = true;
+        }
+            
+            
     }
 
 }
