@@ -25,6 +25,8 @@ public class EnemyMove : MonoBehaviour
         {
             Invoke("DontIgnoreMario", 2);    
         }
+        if (gameObject.transform.position.y < -20)
+            Destroy(gameObject);
     }
     private void DontIgnoreMario()
     {
@@ -43,20 +45,13 @@ public class EnemyMove : MonoBehaviour
                 if (size == 0)
                 {
                     GameObject.Find("Mario").GetComponent<Animator>().enabled = true;
-                    // Destroy(collider.gameObject);
-                   // SceneManager.LoadScene("Game Over");
                 }
                 else
                 {
-
                     GameObject.Find("Player").GetComponent<Player>().ChangeSize(size - 1);
                     ignoreMario = true;
                 }
-            
-                
 
-             //   GameObject.Find("Player").GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Kinematic;
-              //  Invoke("ChangeRigidBody", 3 / 4);
             }
             else
             {
@@ -65,10 +60,6 @@ public class EnemyMove : MonoBehaviour
             }
         }
 
-    }
-    private void ChangeRigidBody()
-    {
-        GameObject.Find("Player").GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
     }
     private void OnCollisionEnter2D(Collision2D collider)
     {
@@ -83,6 +74,14 @@ public class EnemyMove : MonoBehaviour
 
 
         }
+    }
+    private void EnemyDeath()
+    {
+        gameObject.transform.GetChild(0).gameObject.SetActive(false);
+        gameObject.GetComponent<BoxCollider2D>().enabled = false;
+        rigidBody.constraints = RigidbodyConstraints2D.FreezePositionX;
+        gameObject.GetComponent<Animator>().enabled = false;
+        speed = 0;
     }
 
 }

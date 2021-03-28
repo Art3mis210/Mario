@@ -44,6 +44,7 @@ public class CoinTrigger : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
+            GameObject.Find("Player").GetComponent<Player>().PlayCoinSound();
             Box.GetComponent<SpriteRenderer>().sprite = empty;
             gameObject.GetComponent<BoxCollider2D>().isTrigger = false;
             coin.SetActive(true);

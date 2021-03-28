@@ -122,6 +122,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Parent: {fileID: 4404273451198892284}
+  DeadSprite: {fileID: 0}
 --- !u!1 &4404273451198892284
 GameObject:
   m_ObjectHideFlags: 0
@@ -134,8 +135,8 @@ GameObject:
   - component: {fileID: 4404273451198892167}
   - component: {fileID: 4404273451198892160}
   - component: {fileID: 4404273451198892161}
-  - component: {fileID: 4404273451198892162}
   - component: {fileID: -4520484110834765709}
+  - component: {fileID: 1249286340561625051}
   m_Layer: 0
   m_Name: Goomba
   m_TagString: ENEMY
@@ -256,7 +257,20 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.6, y: 1.6}
   m_EdgeRadius: 0
---- !u!95 &4404273451198892162
+--- !u!114 &-4520484110834765709
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4404273451198892284}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a6fe6f3ef1e5cef4e8297780c1ce1d6d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 25
+--- !u!95 &1249286340561625051
 Animator:
   serializedVersion: 3
   m_ObjectHideFlags: 0
@@ -275,16 +289,3 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &-4520484110834765709
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4404273451198892284}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a6fe6f3ef1e5cef4e8297780c1ce1d6d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 25

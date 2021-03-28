@@ -29,7 +29,7 @@ public class Fireball : MonoBehaviour
         if(collision.gameObject.tag=="ENEMY"|| collision.gameObject.tag == "Plant")
         {
             GameObject.Find("Player").GetComponent<Player>().score += 500;
-            Destroy(collision.gameObject);
+            collision.gameObject.GetComponent<Animator>().enabled = true;
             Invoke("DestroyFireball", 0.1f);
             
         }

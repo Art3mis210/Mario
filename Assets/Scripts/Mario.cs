@@ -7,7 +7,7 @@ public class Mario : MonoBehaviour
 {
     void Update()
     {
-        if (gameObject.transform.GetChild(0).transform.position.y < -40.27)
+        if (gameObject.transform.GetChild(0).transform.position.y <-40.27)
         {
             SceneManager.LoadScene("Game Over");
         }

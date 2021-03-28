@@ -41,6 +41,9 @@ public class Player : MonoBehaviour
     public AudioClip StageClear;
     public AudioClip PowerDown;
     public AudioClip PlayerDeathSound;
+    private AudioClip JumpSound;
+    public AudioClip Jump0Sound;
+    public AudioClip Jump1Sound;
     // Start is called before the first frame update
     void Start()
     {
@@ -54,7 +57,8 @@ public class Player : MonoBehaviour
         jump = jump0;
         flagpose=flagpose0;
         coin = 0;
-}
+        JumpSound=Jump0Sound;
+    }
     // Update is called once per frame
     void Update()
     {
@@ -73,7 +77,7 @@ public class Player : MonoBehaviour
               float pos = 0.2f;
               if (sr.flipX == true)
                 pos = -0.2f;
-              Vector2 FireballPosition = new Vector2(transform.position.x + 2, transform.position.y + 2);
+              Vector2 FireballPosition = new Vector2(transform.position.x + 1, transform.position.y + 1);
               Instantiate(Fireball, new Vector3(transform.position.x + pos, transform.position.y + 0.05f, transform.position.z), Quaternion.identity);
         }
         
@@ -82,7 +86,7 @@ public class Player : MonoBehaviour
             An.SetBool("move", false);
             An.enabled = false;
 
-            if (IsGrounded())
+            if (isGrounded == true)
             {
                 sr.sprite = stand;
             }
@@ -90,7 +94,7 @@ public class Player : MonoBehaviour
         else if (h != 0)
         {
             sr.flipX = h < 0;
-            if (IsGrounded())
+            if (isGrounded==true)
             {
                    An.enabled = true;
                    An.SetInteger("size", size);
@@ -100,8 +104,9 @@ public class Player : MonoBehaviour
 
         }
         rigidBody.velocity = new Vector2(h * speed, rigidBody.velocity.y);
-        if (Input.GetKey(KeyCode.Space) && IsGrounded())
+        if (Input.GetKey(KeyCode.Space) && isGrounded==true)
         {
+                gameObject.GetComponent<AudioSource>().PlayOneShot(JumpSound);
                 An.SetBool("move", false);
                 An.enabled = false;
                 sr.sprite = jump;
@@ -115,10 +120,6 @@ public class Player : MonoBehaviour
 
 
     }
-   private bool IsGrounded()
-    {
-        return isGrounded;
-    }
 
     public void ChangeSize(int s)
     {
@@ -128,6 +129,7 @@ public class Player : MonoBehaviour
             stand = stand0;
             jump = jump0;
             flagpose = flagpose0;
+            JumpSound = Jump0Sound;
             BoxC2D.size = new Vector2(0.12f, 0.16f);
 
 
@@ -138,6 +140,7 @@ public class Player : MonoBehaviour
             stand = stand1;
             jump = jump1;
             flagpose = flagpose1;
+            JumpSound = Jump1Sound;
             BoxC2D.size = new Vector2(0.15f, 0.31f);
 
         }
@@ -147,6 +150,7 @@ public class Player : MonoBehaviour
             stand = stand2;
             jump = jump2;
             flagpose = flagpose2;
+            JumpSound = Jump1Sound;
             BoxC2D.size = new Vector2(0.15f, 0.31f);
         }
         if (s > size)
@@ -175,6 +179,18 @@ public class Player : MonoBehaviour
             }
             Destroy(collider.gameObject);
         }
+        if(collider.gameObject.tag=="END")
+        {
+           // Destroy(gameObject);
+            SceneManager.LoadScene("Game Over");
+        }
+
+
+
+
+    }
+    private void OnCollisionStay2D(Collision2D collider)
+    {
         if (collider.gameObject.tag == "Base" || collider.gameObject.tag == "ENDBASE" || collider.gameObject.tag == "PIPE" || collider.gameObject.tag == "Trigger")
         {
             isGrounded = true;
@@ -186,22 +202,13 @@ public class Player : MonoBehaviour
             An.enabled = false;
             isGrounded = false;
         }
-        if(collider.gameObject.tag=="END")
-        {
-           // Destroy(gameObject);
-            SceneManager.LoadScene("Game Over");
-        }
-
-
-
-
     }
-    
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Collectible")
         {
-            gameObject.GetComponent<AudioSource>().PlayOneShot(CoinSound);
+            PlayCoinSound();
             score+=100;
             coin++;
             Destroy(collision.gameObject);
@@ -255,6 +262,10 @@ public class Player : MonoBehaviour
         gameObject.GetComponent<AudioSource>().PlayOneShot(PlayerDeathSound);
         sr.sprite = PlayerDeath;
         Destroy(gameObject.GetComponent<Player>());
+    }
+    public void PlayCoinSound()
+    {
+        gameObject.GetComponent<AudioSource>().PlayOneShot(CoinSound);
     }
 
 
