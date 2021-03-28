@@ -265,6 +265,7 @@ public class Player : MonoBehaviour
             gameObject.GetComponent<AudioSource>().Stop();
             gameObject.GetComponent<AudioSource>().PlayOneShot(GameClear);
             collision.GetComponent<BoxCollider2D>().enabled = false;
+            score += 100000;
         }
         if(collision.gameObject.name == "PrincessPeach")
         {
