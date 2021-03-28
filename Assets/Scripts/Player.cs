@@ -233,6 +233,7 @@ public class Player : MonoBehaviour
             rigidBody.constraints = RigidbodyConstraints2D.FreezeRotation;
             gameObject.GetComponent<AudioSource>().Stop();
             gameObject.GetComponent<AudioSource>().PlayOneShot(StageClear);
+            GameObject.Find("START").transform.position = new Vector3(GameObject.Find("Flag").transform.position.x - 5, GameObject.Find("START").transform.position.y, GameObject.Find("START").transform.position.z);
 
         }
        
