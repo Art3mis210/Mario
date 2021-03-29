@@ -49,11 +49,15 @@ public class Fireball : MonoBehaviour
            // Invoke("DestroyFireball", 0.1f);
             
         }
-        else if(collision.gameObject.tag=="PIPE"|| collision.gameObject.tag == "Base"|| collision.gameObject.tag == "ENDBASE"|| collision.gameObject.tag == "START" || collision.gameObject.tag == "END" || collision.gameObject.tag == "FLAGBASE")
+        else if(collision.gameObject.tag=="PIPE"|| collision.gameObject.tag == "Base"|| collision.gameObject.tag == "ENDBASE"|| collision.gameObject.tag == "FLAGBASE"|| collision.gameObject.tag == "WALL")
         {
             fireAnimator.SetBool("DestroyFireball", true);
            // Invoke("DestroyFireball", 0.5f);
 
+        }
+        else if(collision.gameObject.tag == "START")
+        {
+            Physics2D.IgnoreCollision(collision.gameObject.GetComponent<BoxCollider2D>(), gameObject.GetComponent<BoxCollider2D>());
         }
     }
     private void DestroyFireball()

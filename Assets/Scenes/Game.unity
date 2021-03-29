@@ -1128,7 +1128,7 @@ GameObject:
   - component: {fileID: 21046124}
   m_Layer: 0
   m_Name: DARK BRICK (72)
-  m_TagString: Base
+  m_TagString: WALL
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2825,7 +2825,7 @@ GameObject:
   - component: {fileID: 55085004}
   m_Layer: 0
   m_Name: DARK BRICK (67)
-  m_TagString: Base
+  m_TagString: WALL
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3817,7 +3817,7 @@ GameObject:
   - component: {fileID: 64118799}
   m_Layer: 0
   m_Name: DARK BRICK (56)
-  m_TagString: Base
+  m_TagString: WALL
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4314,7 +4314,7 @@ GameObject:
   - component: {fileID: 73631663}
   m_Layer: 0
   m_Name: DARK BRICK (68)
-  m_TagString: Base
+  m_TagString: WALL
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6247,7 +6247,7 @@ GameObject:
   - component: {fileID: 93361574}
   m_Layer: 0
   m_Name: DARK BRICK (75)
-  m_TagString: Untagged
+  m_TagString: WALL
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6404,7 +6404,7 @@ GameObject:
   - component: {fileID: 94254373}
   m_Layer: 0
   m_Name: DARK BRICK (8)
-  m_TagString: Untagged
+  m_TagString: WALL
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6728,7 +6728,7 @@ GameObject:
   - component: {fileID: 97910706}
   m_Layer: 0
   m_Name: DARK BRICK (1)
-  m_TagString: Untagged
+  m_TagString: WALL
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6999,7 +6999,7 @@ GameObject:
   - component: {fileID: 102300533}
   m_Layer: 0
   m_Name: DARK BRICK (78)
-  m_TagString: Untagged
+  m_TagString: WALL
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -12890,7 +12890,7 @@ GameObject:
   - component: {fileID: 248720795}
   m_Layer: 0
   m_Name: DARK BRICK (13)
-  m_TagString: Untagged
+  m_TagString: WALL
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -13489,7 +13489,7 @@ GameObject:
   - component: {fileID: 259805430}
   m_Layer: 0
   m_Name: DARK BRICK (66)
-  m_TagString: Base
+  m_TagString: WALL
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -15997,7 +15997,7 @@ GameObject:
   - component: {fileID: 292342473}
   m_Layer: 0
   m_Name: DARK BRICK
-  m_TagString: Untagged
+  m_TagString: WALL
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -17283,7 +17283,7 @@ GameObject:
   - component: {fileID: 320763258}
   m_Layer: 0
   m_Name: DARK BRICK (65)
-  m_TagString: Base
+  m_TagString: WALL
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -18668,7 +18668,7 @@ GameObject:
   - component: {fileID: 345369235}
   m_Layer: 0
   m_Name: DARK BRICK (14)
-  m_TagString: Untagged
+  m_TagString: WALL
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -20332,7 +20332,7 @@ GameObject:
   - component: {fileID: 379352763}
   m_Layer: 0
   m_Name: DARK BRICK (3)
-  m_TagString: Untagged
+  m_TagString: WALL
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -22823,7 +22823,7 @@ GameObject:
   - component: {fileID: 445980985}
   m_Layer: 0
   m_Name: DARK BRICK (12)
-  m_TagString: Untagged
+  m_TagString: WALL
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -23409,7 +23409,7 @@ GameObject:
   - component: {fileID: 453164570}
   m_Layer: 0
   m_Name: DARK BRICK (80)
-  m_TagString: Untagged
+  m_TagString: WALL
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -24365,7 +24365,7 @@ GameObject:
   - component: {fileID: 464776391}
   m_Layer: 0
   m_Name: DARK BRICK (10)
-  m_TagString: Untagged
+  m_TagString: WALL
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -25735,7 +25735,7 @@ GameObject:
   - component: {fileID: 490455138}
   m_Layer: 0
   m_Name: DARK BRICK (69)
-  m_TagString: Base
+  m_TagString: WALL
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -31201,7 +31201,7 @@ GameObject:
   - component: {fileID: 587323613}
   m_Layer: 0
   m_Name: DARK BRICK (46)
-  m_TagString: Base
+  m_TagString: WALL
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -32309,7 +32309,7 @@ GameObject:
   - component: {fileID: 617031194}
   m_Layer: 0
   m_Name: DARK BRICK (84)
-  m_TagString: Untagged
+  m_TagString: WALL
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -33696,7 +33696,7 @@ GameObject:
   - component: {fileID: 655611613}
   m_Layer: 0
   m_Name: DARK BRICK (50)
-  m_TagString: Base
+  m_TagString: WALL
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -34696,7 +34696,7 @@ GameObject:
   - component: {fileID: 688125725}
   m_Layer: 0
   m_Name: DARK BRICK (53)
-  m_TagString: Base
+  m_TagString: WALL
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -34853,7 +34853,7 @@ GameObject:
   - component: {fileID: 688914068}
   m_Layer: 0
   m_Name: DARK BRICK (62)
-  m_TagString: Base
+  m_TagString: WALL
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -38290,7 +38290,7 @@ GameObject:
   - component: {fileID: 731121257}
   m_Layer: 0
   m_Name: DARK BRICK (15)
-  m_TagString: Untagged
+  m_TagString: WALL
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -38561,7 +38561,7 @@ GameObject:
   - component: {fileID: 740906332}
   m_Layer: 0
   m_Name: DARK BRICK (16)
-  m_TagString: Untagged
+  m_TagString: WALL
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -39400,7 +39400,7 @@ GameObject:
   - component: {fileID: 761221573}
   m_Layer: 0
   m_Name: DARK BRICK (85)
-  m_TagString: Untagged
+  m_TagString: WALL
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -40816,7 +40816,7 @@ GameObject:
   - component: {fileID: 794104438}
   m_Layer: 0
   m_Name: DARK BRICK (52)
-  m_TagString: Base
+  m_TagString: WALL
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -45578,7 +45578,7 @@ GameObject:
   - component: {fileID: 891673848}
   m_Layer: 0
   m_Name: DARK BRICK (82)
-  m_TagString: Untagged
+  m_TagString: WALL
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -46728,7 +46728,7 @@ GameObject:
   - component: {fileID: 911382889}
   m_Layer: 0
   m_Name: DARK BRICK (6)
-  m_TagString: Untagged
+  m_TagString: WALL
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -46885,7 +46885,7 @@ GameObject:
   - component: {fileID: 914005418}
   m_Layer: 0
   m_Name: DARK BRICK (55)
-  m_TagString: Base
+  m_TagString: WALL
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -47487,7 +47487,7 @@ GameObject:
   - component: {fileID: 923765740}
   m_Layer: 0
   m_Name: DARK BRICK (77)
-  m_TagString: Untagged
+  m_TagString: WALL
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -48863,7 +48863,7 @@ GameObject:
   - component: {fileID: 940805183}
   m_Layer: 0
   m_Name: DARK BRICK (4)
-  m_TagString: Untagged
+  m_TagString: WALL
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -49963,7 +49963,7 @@ GameObject:
   - component: {fileID: 973479694}
   m_Layer: 0
   m_Name: DARK BRICK (7)
-  m_TagString: Untagged
+  m_TagString: WALL
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -53925,7 +53925,7 @@ GameObject:
   - component: {fileID: 1055403356}
   m_Layer: 0
   m_Name: DARK BRICK (64)
-  m_TagString: Base
+  m_TagString: WALL
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -54082,7 +54082,7 @@ GameObject:
   - component: {fileID: 1059294525}
   m_Layer: 0
   m_Name: DARK BRICK (44)
-  m_TagString: Untagged
+  m_TagString: Base
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -60491,7 +60491,7 @@ GameObject:
   - component: {fileID: 1187104695}
   m_Layer: 0
   m_Name: DARK BRICK (73)
-  m_TagString: Untagged
+  m_TagString: WALL
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -62635,7 +62635,7 @@ GameObject:
   - component: {fileID: 1232538619}
   m_Layer: 0
   m_Name: DARK BRICK (45)
-  m_TagString: Untagged
+  m_TagString: WALL
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -64318,7 +64318,7 @@ GameObject:
   - component: {fileID: 1268760178}
   m_Layer: 0
   m_Name: DARK BRICK (86)
-  m_TagString: Untagged
+  m_TagString: WALL
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -66454,7 +66454,7 @@ GameObject:
   - component: {fileID: 1317006994}
   m_Layer: 0
   m_Name: DARK BRICK (9)
-  m_TagString: Untagged
+  m_TagString: WALL
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -67907,7 +67907,7 @@ GameObject:
   - component: {fileID: 1348725702}
   m_Layer: 0
   m_Name: DARK BRICK (79)
-  m_TagString: Untagged
+  m_TagString: WALL
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -68404,7 +68404,7 @@ GameObject:
   - component: {fileID: 1360765419}
   m_Layer: 0
   m_Name: DARK BRICK (83)
-  m_TagString: Untagged
+  m_TagString: Base
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -69694,7 +69694,7 @@ GameObject:
   - component: {fileID: 1373293317}
   m_Layer: 0
   m_Name: DARK BRICK (74)
-  m_TagString: Untagged
+  m_TagString: WALL
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -70257,7 +70257,7 @@ GameObject:
   - component: {fileID: 1384484247}
   m_Layer: 0
   m_Name: DARK BRICK (54)
-  m_TagString: Base
+  m_TagString: WALL
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -71490,7 +71490,7 @@ GameObject:
   - component: {fileID: 1395515645}
   m_Layer: 0
   m_Name: DARK BRICK (70)
-  m_TagString: Base
+  m_TagString: WALL
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -72824,7 +72824,7 @@ GameObject:
   - component: {fileID: 1412347589}
   m_Layer: 0
   m_Name: DARK BRICK (5)
-  m_TagString: Untagged
+  m_TagString: WALL
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -73243,7 +73243,7 @@ GameObject:
   - component: {fileID: 1432890628}
   m_Layer: 0
   m_Name: DARK BRICK (59)
-  m_TagString: Base
+  m_TagString: WALL
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -74157,7 +74157,7 @@ GameObject:
   - component: {fileID: 1443026314}
   m_Layer: 0
   m_Name: DARK BRICK (81)
-  m_TagString: Untagged
+  m_TagString: WALL
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -80463,7 +80463,7 @@ GameObject:
   - component: {fileID: 1576191028}
   m_Layer: 0
   m_Name: DARK BRICK (76)
-  m_TagString: Untagged
+  m_TagString: WALL
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -83304,7 +83304,7 @@ GameObject:
   - component: {fileID: 1635832587}
   m_Layer: 0
   m_Name: DARK BRICK (61)
-  m_TagString: Base
+  m_TagString: WALL
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -89472,7 +89472,7 @@ GameObject:
   - component: {fileID: 1735457715}
   m_Layer: 0
   m_Name: DARK BRICK (51)
-  m_TagString: Base
+  m_TagString: WALL
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -95130,7 +95130,7 @@ GameObject:
   - component: {fileID: 1835215662}
   m_Layer: 0
   m_Name: DARK BRICK (71)
-  m_TagString: Base
+  m_TagString: WALL
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -95454,7 +95454,7 @@ GameObject:
   - component: {fileID: 1837119858}
   m_Layer: 0
   m_Name: DARK BRICK (2)
-  m_TagString: Untagged
+  m_TagString: WALL
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -96007,7 +96007,7 @@ GameObject:
   - component: {fileID: 1844355455}
   m_Layer: 0
   m_Name: DARK BRICK (87)
-  m_TagString: Untagged
+  m_TagString: WALL
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -98394,7 +98394,7 @@ GameObject:
   - component: {fileID: 1878204111}
   m_Layer: 0
   m_Name: DARK BRICK (58)
-  m_TagString: Base
+  m_TagString: WALL
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -99183,7 +99183,7 @@ GameObject:
   - component: {fileID: 1904196543}
   m_Layer: 0
   m_Name: DARK BRICK (48)
-  m_TagString: Base
+  m_TagString: WALL
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -101716,7 +101716,7 @@ GameObject:
   - component: {fileID: 1949916133}
   m_Layer: 0
   m_Name: DARK BRICK (57)
-  m_TagString: Base
+  m_TagString: WALL
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -102287,7 +102287,7 @@ GameObject:
   - component: {fileID: 1959767657}
   m_Layer: 0
   m_Name: DARK BRICK (63)
-  m_TagString: Base
+  m_TagString: WALL
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -102444,7 +102444,7 @@ GameObject:
   - component: {fileID: 1967267970}
   m_Layer: 0
   m_Name: DARK BRICK (60)
-  m_TagString: Base
+  m_TagString: WALL
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -102634,7 +102634,7 @@ GameObject:
   - component: {fileID: 1972991214}
   m_Layer: 0
   m_Name: DARK BRICK (11)
-  m_TagString: Untagged
+  m_TagString: WALL
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -107903,7 +107903,7 @@ GameObject:
   - component: {fileID: 2100591197}
   m_Layer: 0
   m_Name: DARK BRICK (49)
-  m_TagString: Base
+  m_TagString: WALL
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -110676,7 +110676,7 @@ GameObject:
   - component: {fileID: 2144809577}
   m_Layer: 0
   m_Name: DARK BRICK (47)
-  m_TagString: Base
+  m_TagString: WALL
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -111775,6 +111775,11 @@ PrefabInstance:
       propertyPath: m_Material
       value: 
       objectReference: {fileID: 6200000, guid: 4e81b195696cd39418b17592ec51c4ac, type: 2}
+    - target: {fileID: 6761280038813377191, guid: 00d79fb62faaca64186cc3e2a5c6c944,
+        type: 3}
+      propertyPath: m_UsedByEffector
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 00d79fb62faaca64186cc3e2a5c6c944, type: 3}
 --- !u!1001 &7400025919269186608

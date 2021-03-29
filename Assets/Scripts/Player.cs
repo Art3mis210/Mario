@@ -114,6 +114,9 @@ public class Player : MonoBehaviour
         }
         else if (h != 0)
         {
+
+            if (size != 0)
+                BoxC2D.size = new Vector2(0.15f, 0.31f);
             sr.flipX = h < 0;
             if (isGrounded==true)
             {
@@ -213,7 +216,8 @@ public class Player : MonoBehaviour
     {
         if (collider.gameObject.tag == "Base" || collider.gameObject.tag == "ENDBASE" || collider.gameObject.tag == "PIPE" || collider.gameObject.tag == "Trigger")
         {
-            isGrounded = true;
+            if (collider.transform.position.y < gameObject.transform.position.y)
+                isGrounded = true;
 
         }
         else
