@@ -25,9 +25,10 @@ public class Plant : MonoBehaviour
     }
     private void OnCollisionStay2D(Collision2D collider)
     {
-        int size = GameObject.Find("Player").GetComponent<Player>().size;
+
         if (collider.gameObject.tag == "Player")
         {
+            int size = GameObject.Find("Player").GetComponent<Player>().size;
 
             if (ignoreMario != true)
             {

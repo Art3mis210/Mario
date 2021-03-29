@@ -51,6 +51,10 @@ public class Player : MonoBehaviour
     public Sprite sit1;
     public Sprite sit2;
     public AudioClip GameClear;
+    public Text ScoreTemp;
+    public Text CoinTemp;
+    public Text TimeCountText;
+    private float TimeCount;
     // Start is called before the first frame update
     void Start()
     {
@@ -67,6 +71,7 @@ public class Player : MonoBehaviour
         JumpSound=Jump0Sound;
         underground = false;
         sit = sit0;
+        TimeCount = 0.0f;
     }
     // Update is called once per frame
     void Update()
@@ -77,7 +82,11 @@ public class Player : MonoBehaviour
             underground = false;
         }
         ScoreText.text ="Score:  "+score;
+        ScoreTemp.text = ScoreText.text;
         CoinCount.text = " X   " + coin;
+        TimeCount += Time.deltaTime;
+        TimeCountText.text = "Time Taken:" + TimeCount.ToString("F2");
+        CoinTemp.text = CoinCount.text;
         float h = Input.GetAxis("Horizontal");
         GameObject.Find("Canvas").transform.GetChild(1).gameObject.SetActive(size >= 0);
         GameObject.Find("Canvas").transform.GetChild(2).gameObject.SetActive(size >= 1);
@@ -262,7 +271,7 @@ public class Player : MonoBehaviour
         if (collision.gameObject.tag == "END")
         {
             // Destroy(gameObject);
-            SceneManager.LoadScene("Game Over");
+            GameObject.Find("Mario").GetComponent<Mario>().GameOverLoad(0);
         }
         if (collision.gameObject.name == "UndergroundEntered")
         {
@@ -273,7 +282,7 @@ public class Player : MonoBehaviour
         }
         if(collision.gameObject.name == "PrincessPeach")
         {
-            SceneManager.LoadScene("Game Over");
+            GameObject.Find("Mario").GetComponent<Mario>().GameOverLoad(0);
         }
 
     }
@@ -332,6 +341,7 @@ public class Player : MonoBehaviour
         }
         
     }
+    
 
 
 
