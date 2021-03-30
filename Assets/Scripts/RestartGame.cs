@@ -5,32 +5,7 @@ using UnityEngine.UI;
 
 public class RestartGame : MonoBehaviour
 {
-    int i;
     void Start()
-    {
-        i = 0;
-    }
-    private void Update()
-    {
-        if(i==0)
-        {
-            UpdateScore();
-            i++;
-        }
-    }
-    public void GoToMainMenu()
-    {
-        UnityEngine.SceneManagement.SceneManager.LoadScene("Main Menu");
-    }
-    public void PlayAgain()
-    {
-        UnityEngine.SceneManagement.SceneManager.LoadScene("Game");
-    }
-    public void QuitGame()
-    {
-        Application.Quit();
-    }
-    private void UpdateScore()
     {
         GameObject canvas = GameObject.Find("Canvas");
         GameObject CANVASEND = GameObject.Find("CanvasEND");
@@ -52,6 +27,22 @@ public class RestartGame : MonoBehaviour
         CANVASEND.transform.GetChild(9).GetComponent<Text>().text = canvas.transform.GetChild(7).GetComponent<Text>().text;
         CANVASEND.transform.GetChild(10).GetComponent<Text>().text = canvas.transform.GetChild(9).GetComponent<Text>().text;
         Destroy(GameObject.Find("Canvas"));
+    }
+    public void GoToMainMenu()
+    {
+        UnityEngine.SceneManagement.SceneManager.LoadScene("Main Menu");
+    }
+    public void PlayAgain()
+    {
+        UnityEngine.SceneManagement.SceneManager.LoadScene("Game");
+    }
+    public void QuitGame()
+    {
+        Application.Quit();
+    }
+    private void UpdateScore()
+    {
+        
         
     }
 }
