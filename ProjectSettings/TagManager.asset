@@ -17,6 +17,9 @@ TagManager:
   - FLAGBASE
   - START
   - WALL
+  - BG
+  - AUDIO
+  - RESULT
   layers:
   - Default
   - TransparentFX

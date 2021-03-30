@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class Mario : MonoBehaviour
 {
     public GameObject Canvas;
+    public Text Result;
     void Update()
     {
         if (gameObject.transform.GetChild(0).transform.position.y <-40.27)
@@ -20,13 +21,9 @@ public class Mario : MonoBehaviour
     }
     public void GameOverLoad(int n)
     {
-        if (n == 0)//killed by enemy
-        {
-            
-            DontDestroyOnLoad(Canvas);
-            Canvas.SetActive(true);
-            SceneManager.LoadScene("Game Over");
-        }
-
+        Result.text = n.ToString();
+        DontDestroyOnLoad(Canvas);
+        SceneManager.LoadScene("Game Over");
+       // Canvas.SetActive(false);
     }
 }
