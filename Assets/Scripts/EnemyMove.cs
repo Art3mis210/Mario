@@ -12,12 +12,15 @@ public class EnemyMove : MonoBehaviour
     private bool ignoreMario;
     private int deathMove;
     public float movex;
+    public bool dead;
     void Start()
     {
         rigidBody = GetComponent<Rigidbody2D>();
         SR = GetComponent<SpriteRenderer>();
         ignoreMario=false;
         deathMove = 0;
+        dead = false;
+        speed = -speed;
     }
 
     // Update is called once per frame
@@ -25,7 +28,7 @@ public class EnemyMove : MonoBehaviour
     {   
         if(deathMove==0)
         {
-            rigidBody.velocity = new Vector2(-speed * Time.fixedDeltaTime, rigidBody.velocity.y);
+            rigidBody.velocity = new Vector2(speed * Time.fixedDeltaTime, rigidBody.velocity.y);
             if (ignoreMario == true)
             {
                 Invoke("DontIgnoreMario", 2);
@@ -71,23 +74,32 @@ public class EnemyMove : MonoBehaviour
             }
             else
             {
-                Physics2D.IgnoreCollision(collider.gameObject.GetComponent<BoxCollider2D>(), gameObject.GetComponent<BoxCollider2D>());
-                Physics2D.IgnoreCollision(collider.gameObject.GetComponent<BoxCollider2D>(), gameObject.transform.GetChild(0).GetComponent<BoxCollider2D>());
+                Physics2D.IgnoreCollision(collider.gameObject.GetComponent<BoxCollider2D>(), gameObject.GetComponent<BoxCollider2D>(),true);
+                Physics2D.IgnoreCollision(collider.gameObject.GetComponent<BoxCollider2D>(), gameObject.transform.GetChild(0).GetComponent<BoxCollider2D>(),true);
             }
         }
 
     }
     private void OnCollisionEnter2D(Collision2D collider)
     {
-        if (collider.gameObject.tag == "ENDBASE" || collider.gameObject.tag == "PIPE")
+        if(dead==true)
         {
-            if (SR.flipX == true)
-                SR.flipX = false;
-            else
-                SR.flipX = true;
-            if (speed != 0)
-                speed = -speed;
+            if (collider.gameObject.tag == "PIPE")
+            {
+                SR.flipX = !SR.flipX;
+                if(speed!=0)
+                    speed = -speed;
 
+
+            }
+        }
+        else
+        {    if (collider.gameObject.tag == "ENDBASE" || collider.gameObject.tag == "PIPE")
+            {
+                SR.flipX = !SR.flipX;
+                if (speed != 0)
+                    speed = -speed;
+            }
 
         }
     }
@@ -104,6 +116,16 @@ public class EnemyMove : MonoBehaviour
         }
             
             
+    }
+    public void StompedEnemy()
+    {
+        dead = true;
+        if (GameObject.Find("Player").gameObject.transform.position.x <= gameObject.transform.position.x)
+            speed = 200;
+        else
+            speed = -200;
+        ignoreMario = true;
+        rigidBody.gravityScale = 5;
     }
 
 }

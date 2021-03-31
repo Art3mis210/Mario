@@ -122,7 +122,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Parent: {fileID: 6005506445993705370}
-  DeadSprite: {fileID: 0}
+  DeadSprite: {fileID: 943534445077230785, guid: 36101b2362486c846829e0b83961f65b,
+    type: 3}
 --- !u!1 &6005506445993705370
 GameObject:
   m_ObjectHideFlags: 0
@@ -201,7 +202,7 @@ SpriteRenderer:
   m_Sprite: {fileID: -860468679390908754, guid: ab79e6b4139b3cf4eb545671edbf8b77,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 1
+  m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 1.6, y: 2.6}
@@ -229,7 +230,7 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!61 &6005506445993705369
 BoxCollider2D:
@@ -289,3 +290,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 25
+  movex: 0
+  dead: 0
